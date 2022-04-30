@@ -1,0 +1,23 @@
+team_name: Datart
+model_name: WNV prediction Poisson Fixed Effect
+model_abbr: WNV_pred_Poisson_FE
+model_contributors: Zeynep Ertem (Binghamton University) <zeynep@binghamton.edu>, Anseh Danesharasteh (Binghamton University) <adanesh1@binghamton.edu>, Amera Al-Amery (Binghamton 
+                    University) <aalamer1@binghamton.edu>, Xilin Zhang (Binghamton University) <xzhan176@binghamton.edu>
+website_url: https://github.com/xzhan176/WNV-forecast-data-2022/tree/main/data-forecasts
+license: CC-BY 4.0
+team_model_designation: primary
+ensemble_of_hub_models: false
+methods:
+Since there is not any linear trend in the number of cases through years, linear models may not be a good option. For this challenge, we used a Poisson regression to fit our model.
+Since we are interested in changes during the years, we performed a fixed effect Poisson regression model. Our dependent variable is count (number of cases per county per year) and 
+our independent variables are average temperature, average precipitation, mean cases of neighbors of each county for the previous year, and cumulative cases of each county for the 
+past two years. Our fixed effect Poisson regression model can be represented in the following equation:
+y = β0 + β1 X average_temperature ∗ X average_precipitation + β2 X past_year_of neighbors’_mean_cases + β3 Xpast_2_years_of_county′s_cumulative_cases + ε
+
+data_inputs: 
+• Temperature: average temperature for each county per year (2000-2022, same years for the forecats) during each month from https://www.ncdc.noaa.gov/
+• Precipitation: average precipitation for each county per year (2000-2022, same years for the forecats) during each month from https://www.ncdc.noaa.gov/
+• Mean cases of each county neighbors for the previous year
+• Cumulative cases of each county for the past two years
+
+
